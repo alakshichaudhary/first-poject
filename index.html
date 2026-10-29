@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveEase | Vehicle Rental Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#home" class="logo">Drive<span>Ease</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#vehicles">Vehicles</a>
+        <a href="#bookings">My Bookings</a>
+        <a href="#admin">Admin</a>
+    </nav>
+
+    <a href="#vehicles" class="nav-button">Rent a Vehicle</a>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="eyebrow">YOUR JOURNEY, YOUR RULES</p>
+            <h1>Find your perfect<br><span>ride today.</span></h1>
+            <p class="hero-description">
+                Rent cars, bikes and scooters with ease.
+                Choose your ride, select your dates and get moving.
+            </p>
+            <a href="#vehicles" class="primary-button">Explore Vehicles →</a>
+
+            <div class="hero-stats">
+                <div><strong id="vehicle-count">6+</strong><small>Vehicles</small></div>
+                <div><strong>3</strong><small>Vehicle Types</small></div>
+                <div><strong>24/7</strong><small>Online Access</small></div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85"
+                alt="Premium car available for rental">
+            <div class="floating-card">
+                <span class="green-dot"></span>
+                <div><strong>Ready to ride?</strong><small>Choose from our fleet</small></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="section-heading">
+            <p class="eyebrow">PLAN YOUR JOURNEY</p>
+            <h2>Find your next ride</h2>
+        </div>
+
+        <form id="search-form" class="search-box">
+            <div class="field">
+                <label for="search-type">Vehicle type</label>
+                <select id="search-type">
+                    <option value="all">All vehicles</option>
+                    <option value="car">Cars</option>
+                    <option value="bike">Bikes</option>
+                    <option value="scooter">Scooters</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="pickup-date">Pickup date</label>
+                <input type="date" id="pickup-date" required>
+            </div>
+
+            <div class="field">
+                <label for="return-date">Return date</label>
+                <input type="date" id="return-date" required>
+            </div>
+
+            <button type="submit" class="primary-button">Search Rides</button>
+        </form>
+        <p id="search-message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="vehicles-section" id="vehicles">
+        <div class="section-heading heading-row">
+            <div>
+                <p class="eyebrow">OUR COLLECTION</p>
+                <h2>Choose your vehicle</h2>
+                <p class="muted">Find the right ride for every journey.</p>
+            </div>
+            <select id="sort-price" aria-label="Sort vehicles by price">
+                <option value="default">Recommended</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+            </select>
+        </div>
+
+        <div id="vehicle-list" class="vehicle-grid"></div>
+        <p id="empty-message" class="empty-message" hidden>
+            No vehicles match your search. Try another category or date.
+        </p>
+    </section>
+
+    <section class="how-section">
+        <div class="section-heading">
+            <p class="eyebrow">SIMPLE & CONVENIENT</p>
+            <h2>How it works</h2>
+        </div>
+
+        <div class="steps-grid">
+            <article class="step-card">
+                <span>01</span>
+                <h3>Choose your ride</h3>
+                <p>Browse vehicles and compare rental prices.</p>
+            </article>
+            <article class="step-card">
+                <span>02</span>
+                <h3>Book your dates</h3>
+                <p>Select pickup and return dates and confirm your details.</p>
+            </article>
+            <article class="step-card">
+                <span>03</span>
+                <h3>Start your journey</h3>
+                <p>Track your booking and check its rental status.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="bookings-section" id="bookings">
+        <div class="section-heading">
+            <p class="eyebrow">YOUR ACTIVITY</p>
+            <h2>My bookings</h2>
+            <p class="muted">View the demo bookings made in this browser.</p>
+        </div>
+        <div id="booking-list" class="booking-list"></div>
+    </section>
+
+    <section class="admin-section" id="admin">
+        <div class="section-heading">
+            <p class="eyebrow">MANAGEMENT OVERVIEW</p>
+            <h2>Admin dashboard</h2>
+            <p class="muted">A demonstration dashboard for the project.</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <article class="dashboard-card">
+                <span>Total vehicles</span>
+                <strong id="admin-vehicles">0</strong>
+            </article>
+            <article class="dashboard-card">
+                <span>Total bookings</span>
+                <strong id="admin-bookings">0</strong>
+            </article>
+            <article class="dashboard-card">
+                <span>Confirmed bookings</span>
+                <strong id="admin-confirmed">0</strong>
+            </article>
+            <article class="dashboard-card">
+                <span>Maintenance vehicles</span>
+                <strong id="admin-maintenance">0</strong>
+            </article>
+        </div>
+
+        <div class="admin-panel">
+            <h3>Manage vehicle availability</h3>
+            <p class="muted">Use the button to mark a vehicle available or under maintenance.</p>
+            <div id="admin-vehicle-list"></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <a href="#home" class="logo">Drive<span>Ease</span></a>
+    <p>A student project for convenient vehicle rentals.</p>
+    <p class="footer-note">Demo version · No real payments are processed.</p>
+    <p>© 2026 DriveEase. All rights reserved.</p>
+</footer>
+
+<!-- Booking popup -->
+<div class="modal" id="booking-modal" hidden>
+    <div class="modal-content">
+        <button type="button" id="close-modal" class="close-button"
+            aria-label="Close booking form">×</button>
+
+        <p class="eyebrow">RESERVE YOUR RIDE</p>
+        <h2>Complete your booking</h2>
+        <div id="selected-vehicle"></div>
+
+        <form id="booking-form">
+            <input type="hidden" id="vehicle-id">
+
+            <label for="customer-name">Your full name</label>
+            <input type="text" id="customer-name" placeholder="Enter your name" required>
+
+            <label for="customer-phone">Mobile number</label>
+            <input type="tel" id="customer-phone" placeholder="10-digit mobile number"
+                pattern="[6-9][0-9]{9}" maxlength="10" required>
+
+            <label for="booking-pickup">Pickup date</label>
+            <input type="date" id="booking-pickup" required>
+
+            <label for="booking-return">Return date</label>
+            <input type="date" id="booking-return" required>
+
+            <div class="price-summary">
+                <span>Estimated rental cost</span>
+                <strong id="estimated-price">₹0</strong>
+            </div>
+
+            <p class="muted small-text">
+                This is a demo reservation. No payment will be collected.
+            </p>
+
+            <button type="submit" class="primary-button full-button">
+                Confirm Demo Booking
+            </button>
+            <p id="booking-message" class="message" aria-live="polite"></p>
+        </form>
+    </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
